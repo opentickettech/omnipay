@@ -25,6 +25,21 @@ class PurchaseResponse extends AbstractPaynlResponseWithLinks implements Redirec
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getRedirectUrl()
+    {
+        $url = $this->data['links']['redirect'];
+
+        if (array_key_exists('cardToken', $this->data)) {
+            $url .= (parse_url($url, PHP_URL_QUERY) ? '&' : '?')
+                    . http_build_query(['cardToken' => $this->data['cardToken'], 'action' => 'process']);
+        }
+
+        return $url;
+    }
+
+    /**
      * @returns bool The order is created
      */
     public function isSuccessfulCreated()

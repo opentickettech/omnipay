@@ -143,6 +143,11 @@ class PurchaseRequest extends AbstractPaynlRequest
     public function sendData($data)
     {
         $responseData = $this->sendRequestMultiCore('', $data, 'POST');
+
+        if (!is_null($this->getCardToken())) {
+            $responseData['cardToken'] = $this->getCardToken();
+        }
+
         return $this->response = new PurchaseResponse($this, $responseData);
     }
 
@@ -207,6 +212,16 @@ class PurchaseRequest extends AbstractPaynlRequest
     public function setServiceId($value)
     {
         return $this->setParameter('serviceId', $value);
+    }
+
+    public function getCardToken()
+    {
+        return $this->getParameter('cardToken');
+    }
+
+    public function setCardToken($value)
+    {
+        return $this->setParameter('cardToken', $value);
     }
 
     /**
