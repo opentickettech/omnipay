@@ -9,6 +9,6 @@ class VoidResponse extends AbstractPaynlResponseWithLinks
      */
     public function getTransactionReference()
     {
-        return isset($this->data['id']) ? $this->data['id'] : null;
+        return $this->data['id'] ?? null;
     }
 }

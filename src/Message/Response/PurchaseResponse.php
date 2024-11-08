@@ -17,29 +17,6 @@ class PurchaseResponse extends AbstractPaynlResponseWithLinks implements Redirec
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function isRedirect()
-    {
-        return isset($this->data['links']['redirect']);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getRedirectUrl()
-    {
-        $url = $this->data['links']['redirect'];
-
-        if (array_key_exists('cardToken', $this->data)) {
-            $url .= (parse_url($url, PHP_URL_QUERY) ? '&' : '?')
-                    . http_build_query(['cardToken' => $this->data['cardToken'], 'action' => 'process']);
-        }
-
-        return $url;
-    }
-
-    /**
      * @returns bool The order is created
      */
     public function isSuccessfulCreated()
@@ -69,7 +46,7 @@ class PurchaseResponse extends AbstractPaynlResponseWithLinks implements Redirec
      */
     public function getTransactionReference()
     {
-        return isset($this->data['id']) ? $this->data['id'] : null;
+        return $this->data['orderId'] ?? null;
     }
 
     /**
@@ -77,6 +54,6 @@ class PurchaseResponse extends AbstractPaynlResponseWithLinks implements Redirec
      */
     public function getAcceptCode()
     {
-        return isset($this->data['reference']) ? $this->data['reference'] : null;
+        return $this->data['reference'] ?? null;
     }
 }

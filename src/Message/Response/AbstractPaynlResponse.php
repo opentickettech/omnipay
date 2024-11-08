@@ -17,7 +17,7 @@ abstract class AbstractPaynlResponse extends AbstractResponse
      */
     public function isSuccessful()
     {
-        return isset($this->data['id']) ? true : false;
+        return isset($this->data['id']);
     }
 
     /**

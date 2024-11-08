@@ -214,16 +214,6 @@ class PurchaseRequest extends AbstractPaynlRequest
         return $this->setParameter('serviceId', $value);
     }
 
-    public function getCardToken()
-    {
-        return $this->getParameter('cardToken');
-    }
-
-    public function setCardToken($value)
-    {
-        return $this->setParameter('cardToken', $value);
-    }
-
     /**
      * Get the parts of an address
      * @param string $address

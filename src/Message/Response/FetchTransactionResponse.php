@@ -4,12 +4,19 @@ namespace Omnipay\PaynlV3\Message\Response;
 
 class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
 {
+    const STATUS_CANCEL = 'CANCEL';
+    const STATUS_PENDING = 'PENDING';
+    const STATUS_AUTHORIZED = 'AUTHORIZED';
+    const STATUS_EXPIRED = 'EXPIRED';
+    const STATUS_VERIFY = 'VERIFY';
+    const STATUS_PAID = 'PAID';
+
     /**
      * @return bool
      */
     public function isCancelled()
     {
-        return isset($this->data['status']['action']) && 'CANCEL' === $this->data['status']['action'];
+        return isset($this->data['status']['action']) && $this->data['status']['action'] === self::STATUS_CANCEL;
     }
 
     /**
@@ -17,9 +24,8 @@ class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
      */
     public function isPending()
     {
-        return
-            isset($this->data['status']['action']) &&
-            (strpos('PENDING', strtoupper($this->data['status']['action'])) !== false);
+        return isset($this->data['status']['action'])
+               && ($this->data['status']['action'] === self::STATUS_PENDING || $this->data['status']['action'] === self::STATUS_VERIFY);
     }
 
     /**
@@ -33,19 +39,9 @@ class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
     /**
      * @return bool
      */
-    public function isVerify()
-    {
-        return
-            isset($this->data['status']['action']) &&
-            strtoupper($this->data['status']['action']) == 'VERIFY';
-    }
-
-    /**
-     * @return bool
-     */
     public function isExpired()
     {
-        return isset($this->data['status']['action']) && 'EXPIRED' === $this->data['status']['action'];
+        return isset($this->data['status']['action']) && $this->data['status']['action'] === self::STATUS_EXPIRED;
     }
 
     /**
@@ -53,7 +49,7 @@ class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
      */
     public function getTransactionReference()
     {
-        return isset($this->data['id']) ? $this->data['id'] : null;
+        return $this->data['id'] ?? null;
     }
 
     /**
@@ -61,7 +57,7 @@ class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
      */
     public function getStatus()
     {
-        return isset($this->data['status']['action']) ? $this->data['status']['action'] : null;
+        return $this->data['status']['action'] ?? null;
     }
 
     /**
@@ -77,7 +73,7 @@ class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
      */
     public function getCurrency()
     {
-        return isset($this->data['amount']['currency']) ? $this->data['amount']['currency'] : null;
+        return $this->data['amount']['currency'] ?? null;
     }
 
     /**
@@ -85,8 +81,7 @@ class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
      */
     public function isPaid()
     {
-        return isset($this->data['status']['action']) && in_array($this->data['status']['action'],
-                array('PAID', 'AUTHORIZE'));
+        return isset($this->data['status']['action']) && $this->data['status']['action'] === self::STATUS_PAID;
     }
 
     /**
@@ -94,6 +89,6 @@ class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
      */
     public function isAuthorized()
     {
-        return isset($this->data['status']['action']) && $this->data['status']['action'] == 'AUTHORIZE';
+        return isset($this->data['status']['action']) && $this->data['status']['action'] === self::STATUS_AUTHORIZED;
     }
 }

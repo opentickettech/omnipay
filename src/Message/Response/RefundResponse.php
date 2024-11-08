@@ -17,7 +17,7 @@ class RefundResponse extends AbstractPaynlResponse
      */
     public function getAmountInteger()
     {
-        return (int)$this->data['amountRefunded'];
+        return $this->data['amountRefunded']['value'] ?? null;
     }
 
     /**
@@ -25,6 +25,6 @@ class RefundResponse extends AbstractPaynlResponse
      */
     public function getTransactionReference()
     {
-        return $this->request->getTransactionReference();
+        return $this->data['orderId'] ?? null;
     }
 }
