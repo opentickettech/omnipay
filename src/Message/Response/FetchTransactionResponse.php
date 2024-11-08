@@ -24,8 +24,7 @@ class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
      */
     public function isPending()
     {
-        return isset($this->data['status']['action'])
-               && ($this->data['status']['action'] === self::STATUS_PENDING || $this->data['status']['action'] === self::STATUS_VERIFY);
+        return isset($this->data['status']['action']) && $this->data['status']['action'] === self::STATUS_PENDING;
     }
 
     /**
@@ -34,6 +33,14 @@ class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
     public function isOpen()
     {
         return $this->isPending();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isVerify()
+    {
+        return isset($this->data['status']['action']) && $this->data['status']['action'] === self::STATUS_VERIFY;
     }
 
     /**
@@ -49,7 +56,7 @@ class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
      */
     public function getTransactionReference()
     {
-        return $this->data['id'] ?? null;
+        return $this->request->getTransactionReference() ?? $this->data['orderId'] ?? null;
     }
 
     /**

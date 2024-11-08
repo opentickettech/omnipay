@@ -8,6 +8,13 @@ use Omnipay\Common\Issuer;
 class FetchIssuersResponse extends AbstractPaynlResponse
 {
     /**
+     * {@inheritdoc}
+     */
+    public function isSuccessful() {
+        return isset($this->data['checkoutOptions']);
+    }
+
+    /**
      * @return Issuer[]|null
      */
     public function getIssuers()

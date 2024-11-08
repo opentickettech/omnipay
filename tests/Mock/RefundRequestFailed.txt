@@ -1,0 +1,25 @@
+HTTP/1.1 200 OK
+Date: Wed, 26 Sep 2018 15:46:18 GMT;
+Server: Apache;
+Expires: Mon, 26 Jul 1990 05:00:00 GMT;
+Last-Modified: Wed, 26 Sep 2018 15:46:18 GMT;
+Cache-Control: post-check=0, pre-check=0;
+Pragma: no-cache;
+X-Frame-Options: SAMEORIGIN;
+X-XSS-Protection: 1; mode=block;
+X-Content-Type-Options: nosniff;
+Connection: close;
+Content-Type: application/json;
+
+{
+	"type": "https:\/\/developer.pay.nl\/docs\/error-codes",
+	"title": "An error occurred",
+	"detail": "Refund not successful",
+	"violations": [
+		{
+			"propertyPath": null,
+			"message": "Refund not successful",
+			"code": "PAY-3002"
+		}
+	]
+}

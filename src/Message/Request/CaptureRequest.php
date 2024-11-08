@@ -14,7 +14,7 @@ class CaptureRequest extends AbstractPaynlRequest
     {
         $this->validate('tokenCode', 'apiSecret', 'transactionReference');
         $data = [
-            'id' =>   $this->getParameter('transactionReference'),
+            'transactionId' =>   $this->getParameter('transactionReference'),
             'amount' => $this->getAmountInteger(),
             'products' => array()
         ];
@@ -47,13 +47,13 @@ class CaptureRequest extends AbstractPaynlRequest
         $response = null;
 
         if (isset($data['products']) && count($data['products']) > 0) {
-            $url = '/' . $data['id'] . '/capture/products';
+            $url = '/' . $data['transactionId'] . '/capture/products';
             $postObject = ['products' => $data['products']];
             $responseData = $this->sendRequestMultiCore($url, $postObject,'PATCH');
         }
 
         if (isset($data['amount']) && $data['amount'] > 0) {
-            $url = '/' . $data['id'] . '/capture/amount';
+            $url = '/' . $data['transactionId'] . '/capture/amount';
             $postObject = ['amount' => $data['amount']];
             $responseData = $this->sendRequestMultiCore($url, $postObject,'PATCH');
         }

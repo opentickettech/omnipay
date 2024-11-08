@@ -1,0 +1,42 @@
+HTTP/1.1 200 OK
+Date: Wed, 26 Sep 2018 15:46:18 GMT;
+Server: Apache;
+Expires: Mon, 26 Jul 1990 05:00:00 GMT;
+Last-Modified: Wed, 26 Sep 2018 15:46:18 GMT;
+Cache-Control: post-check=0, pre-check=0;
+Pragma: no-cache;
+X-Frame-Options: SAMEORIGIN;
+X-XSS-Protection: 1; mode=block;
+X-Content-Type-Options: nosniff;
+Connection: close;
+Content-Type: application/json;
+
+{
+	"orderId": "52200435050XXXXX",
+	"transactionId": "EX-9167-XXXX-XXXX",
+	"description": "We have refunded € 0,01 by refunding 1 transaction(s) with € 0,01",
+	"processDate": "2024-11-08T11:58:44+01:00",
+	"amount": {
+		"value": 1,
+		"currency": "EUR"
+	},
+	"amountRefunded": {
+		"value": 1,
+		"currency": "EUR"
+	},
+	"refundedTransactions": [],
+	"createdAt": "2024-11-08T11:58:44+01:00",
+	"createdBy": "AT-XXXX-XXXX",
+	"_links": [
+		{
+			"href": "\/transactions\/52200435050XXXXX",
+			"rel": "details",
+			"type": "GET"
+		},
+		{
+			"href": "\/transactions\/52200435050XXXXX\/refund",
+			"rel": "self",
+			"type": "PATCH"
+		}
+	]
+}

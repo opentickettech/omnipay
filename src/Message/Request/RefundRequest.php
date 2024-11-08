@@ -15,8 +15,16 @@ class RefundRequest extends AbstractPaynlRequest
         $this->validate('tokenCode', 'apiSecret', 'transactionReference');
 
         $data = [
-            'id' => $this->getTransactionReference(),
+            'transactionId' => $this->getTransactionReference(),
         ];
+
+        if (!is_null($this->getAmountInteger())) {
+            $data['amount'] = $this->getAmountInteger();
+        }
+
+        if (!is_null($this->getDescription())) {
+            $data['description'] = $this->getDescription();
+        }
 
         return $data;
     }
@@ -27,7 +35,7 @@ class RefundRequest extends AbstractPaynlRequest
      */
     public function sendData($data)
     {
-        $responseData = $this->sendRequestRestApi('transactions/' . $data['id'] . '/refund', null, 'PATCH');
+        $responseData = $this->sendRequestRestApi('transactions/' . $data['transactionId'] . '/refund', null, 'PATCH');
         return $this->response = new RefundResponse($this, $responseData);
     }
 }

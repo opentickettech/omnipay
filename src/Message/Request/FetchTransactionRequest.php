@@ -14,7 +14,7 @@ class FetchTransactionRequest extends AbstractPaynlRequest
         $this->validate('tokenCode', 'apiSecret', 'transactionReference');
 
         return [
-            'id' => $this->getParameter('transactionReference')
+            'transactionId' => $this->getParameter('transactionReference')
         ];
     }
 
@@ -24,7 +24,7 @@ class FetchTransactionRequest extends AbstractPaynlRequest
      */
     public function sendData($data)
     {
-        $statusUrl = '/' . $data['id'] . '/status';
+        $statusUrl = '/' . $data['transactionId'] . '/status';
         $responseData = $this->sendRequestMultiCore($statusUrl);
         return $this->response = new FetchTransactionResponse($this, $responseData);
     }

@@ -1,0 +1,340 @@
+HTTP/1.1 200 OK
+Date: Wed, 26 Sep 2018 15:46:18 GMT;
+Server: Apache;
+Expires: Mon, 26 Jul 1990 05:00:00 GMT;
+Last-Modified: Wed, 26 Sep 2018 15:46:18 GMT;
+Cache-Control: post-check=0, pre-check=0;
+Pragma: no-cache;
+X-Frame-Options: SAMEORIGIN;
+X-XSS-Protection: 1; mode=block;
+X-Content-Type-Options: nosniff;
+Connection: close;
+Content-Type: application/json;
+
+{
+	"code": "SL-xxx-xxx",
+	"secret": "xxxx",
+	"testMode": false,
+	"name": "Test name",
+	"translations": {
+		"name": {
+			"nl_NL": "Test name"
+		}
+	},
+	"status": "ACTIVE",
+	"merchant": {
+		"code": "M-test-test",
+		"name": "Test name",
+		"status": "ACTIVE"
+	},
+	"category": {
+		"code": "CY-test-test",
+		"name": "Ticket agencies"
+	},
+	"mcc": 7922,
+	"turnoverGroup": {
+		"code": "CT-test-test",
+		"name": "Default"
+	},
+	"layout": null,
+	"tradeName": {
+		"code": "TM-test-test",
+		"name": "Test"
+	},
+	"address": null,
+	"createdAt": "2016-11-07T10:25:10+01:00",
+	"createdBy": "A-6344-8004",
+	"modifiedAt": "2024-09-19T11:58:00+02:00",
+	"modifiedBy": null,
+	"deletedAt": null,
+	"deletedBy": null,
+	"checkoutOptions": [
+		{
+			"tag": "PG_2",
+			"name": "Credit- & Debitcards",
+			"translations": {
+				"name": {
+					"de_DE": "Kredit- und Debitkarten",
+					"en_GB": "Credit- & Debitcards",
+					"fr_FR": "Cartes de credit",
+					"nl_NL": "Credit- & Debitcards"
+				}
+			},
+			"image": "\/payment_method_groups\/CNP.svg",
+			"paymentMethods": [
+				{
+					"id": 706,
+					"name": "Visa Mastercard",
+					"description": "Make a secure payment by Creditcard",
+					"translations": {
+						"name": {
+							"nl_NL": "Visa Mastercard"
+						},
+						"description": {
+							"en_GB": "Make a secure payment by Creditcard",
+							"nl_NL": "Betaal veilig met uw creditcard."
+						}
+					},
+					"image": "\/payment_methods\/7.svg",
+					"options": [],
+					"settings": null,
+					"minAmount": 1,
+					"maxAmount": 1000000
+				}
+			],
+			"requiredFields": []
+		},
+		{
+			"tag": "PM_10",
+			"name": "iDEAL",
+			"translations": {
+				"name": {
+					"nl_NL": "iDEAL"
+				}
+			},
+			"image": "\/payment_methods\/1.svg",
+			"paymentMethods": [
+				{
+					"id": 10,
+					"name": "iDEAL",
+					"description": "Met iDEAL kunt  u met een Nederlandse bankrekening vertrouwd, veilig en gemakkelijk betalen via internetbankieren van uw eigen bank.",
+					"translations": {
+						"name": {
+							"nl_NL": "iDEAL"
+						},
+						"description": {
+							"en_GB": "Met iDEAL kunt u met een Nederlandse bankrekening vertrouwd, veilig en gemakkelijk betalen via internetbankieren van uw eigen bank."
+						}
+					},
+					"image": "\/payment_methods\/1.svg",
+					"options": [
+						{
+							"id": "1",
+							"name": "ABN Amro",
+							"image": "\/issuers\/1.svg"
+						},
+						{
+							"id": "2",
+							"name": "Rabobank",
+							"image": "\/issuers\/2.svg"
+						},
+						{
+							"id": "4",
+							"name": "ING",
+							"image": "\/issuers\/4.svg"
+						},
+						{
+							"id": "5",
+							"name": "SNS",
+							"image": "\/issuers\/5.svg"
+						},
+						{
+							"id": "8",
+							"name": "ASN Bank",
+							"image": "\/issuers\/8.svg"
+						},
+						{
+							"id": "9",
+							"name": "RegioBank",
+							"image": "\/issuers\/9.svg"
+						},
+						{
+							"id": "10",
+							"name": "Triodos Bank",
+							"image": "\/issuers\/10.svg"
+						},
+						{
+							"id": "11",
+							"name": "Van Lanschot",
+							"image": "\/issuers\/11.svg"
+						},
+						{
+							"id": "12",
+							"name": "Knab",
+							"image": "\/issuers\/12.svg"
+						},
+						{
+							"id": "5080",
+							"name": "Bunq",
+							"image": "\/issuers\/5080.svg"
+						},
+						{
+							"id": "5084",
+							"name": "Revolut",
+							"image": "\/issuers\/5084.svg"
+						},
+						{
+							"id": "23355",
+							"name": "N26",
+							"image": "\/issuers\/23355.svg"
+						},
+						{
+							"id": "23358",
+							"name": "Yoursafe",
+							"image": "\/issuers\/23358.svg"
+						},
+						{
+							"id": "23361",
+							"name": "Nationale-Nederlanden",
+							"image": "\/issuers\/23361.svg"
+						}
+					],
+					"settings": null,
+					"minAmount": 1,
+					"maxAmount": 5000000
+				}
+			],
+			"requiredFields": null
+		},
+		{
+			"tag": "PM_138",
+			"name": "PayPal",
+			"translations": {
+				"name": {
+					"en_GB": "PayPal",
+					"it_IT": "PayPal",
+					"nl_NL": "PayPal"
+				}
+			},
+			"image": "\/payment_methods\/21.svg",
+			"paymentMethods": [
+				{
+					"id": 138,
+					"name": "PayPal",
+					"description": "",
+					"translations": {
+						"name": {
+							"en_GB": "PayPal",
+							"it_IT": "PayPal",
+							"nl_NL": "PayPal"
+						}
+					},
+					"image": "\/payment_methods\/21.svg",
+					"options": [],
+					"settings": null,
+					"minAmount": 1,
+					"maxAmount": 5000000
+				}
+			],
+			"requiredFields": null
+		},
+		{
+			"tag": "PM_436",
+			"name": "Bancontact",
+			"translations": {
+				"name": {
+					"nl_NL": "Bancontact"
+				}
+			},
+			"image": "\/payment_methods\/2.svg",
+			"paymentMethods": [
+				{
+					"id": 436,
+					"name": "Bancontact",
+					"description": "Make a Payment trough one of the Belgium Bank that offer Bancontact",
+					"translations": {
+						"name": {
+							"nl_NL": "Bancontact"
+						},
+						"description": {
+							"en_GB": "Make a Payment trough one of the Belgium Bank that offer Bancontact",
+							"nl_NL": "U kunt met Bancontact vertrouwd, veilig en gemakkelijk betalen via internetbankieren van uw eigen bank, wanneer u een Belgische bankrekening heeft."
+						}
+					},
+					"image": "\/payment_methods\/2.svg",
+					"options": [],
+					"settings": null,
+					"minAmount": 1,
+					"maxAmount": 1000000
+				}
+			],
+			"requiredFields": null
+		},
+		{
+			"tag": "PM_559",
+			"name": "SOFORT",
+			"translations": {
+				"name": {
+					"nl_NL": "SOFORT"
+				}
+			},
+			"image": "\/payment_methods\/4.svg",
+			"paymentMethods": [
+				{
+					"id": 559,
+					"name": "SOFORT",
+					"description": "Sofortbanking",
+					"translations": {
+						"name": {
+							"nl_NL": "SOFORT"
+						},
+						"description": {
+							"en_GB": "Sofortbanking",
+							"nl_NL": "Sofortbanking"
+						}
+					},
+					"image": "\/payment_methods\/4.svg",
+					"options": [],
+					"settings": null,
+					"minAmount": 50,
+					"maxAmount": 500000
+				}
+			],
+			"requiredFields": null
+		}
+	],
+	"checkoutSequence": {
+		"default": {
+			"primary": [
+				"PG_2",
+				"PM_10",
+				"PM_138",
+				"PM_436",
+				"PM_559"
+			],
+			"secondary": []
+		}
+	},
+	"checkoutTexts": [],
+	"encryptionKeys": [
+		{
+			"identifier": "encryptionIdentifier",
+			"publicKey": "encryptionPublicKey",
+			"createdAt": "2024-01-16T16:30:24+01:00",
+			"expiresAt": "2025-01-15T16:30:24+01:00"
+		},
+		{
+			"identifier": "encryptionIdentifier",
+			"publicKey": "encryptionPublicKey",
+			"createdAt": "2024-01-16T16:30:24+01:00",
+			"expiresAt": "2026-01-15T16:30:24+01:00"
+		}
+	],
+	"tguList": [
+		{
+			"ID": 2,
+			"share": 90,
+			"domain": "pay.nl",
+			"status": "ACTIVE"
+		},
+		{
+			"ID": 52,
+			"share": 10,
+			"domain": "payments.nl",
+			"status": "ACTIVE"
+		},
+		{
+			"ID": 51,
+			"share": 0,
+			"domain": "achterelkebetaling.nl",
+			"status": "ACTIVE"
+		}
+	],
+	"_links": [
+		{
+			"href": "\/services\/config?serviceId=SL-xxx-xxx",
+			"rel": "self",
+			"type": "GET"
+		}
+	]
+}
