@@ -74,8 +74,8 @@ class PurchaseRequest extends AbstractPaynlRequest
             $data['order']['countryCode'] = !empty($card->getCountry()) ? substr($card->getCountry(), 0, 2) : null;
             $data['order']['invoiceAddress']['firstName'] = $card->getBillingFirstName();
             $data['order']['invoiceAddress']['lastName'] = $card->getBillingLastName();
-            $data['order']['invoiceAddress']['street'] = $billingAddressParts[1];
-            $data['order']['invoiceAddress']['streetNumber'] = $billingAddressParts[2];
+            $data['order']['invoiceAddress']['street'] = isset($billingAddressParts[1]) ? $billingAddressParts[1] : null;
+            $data['order']['invoiceAddress']['streetNumber'] = isset($billingAddressParts[2]) ? $billingAddressParts[2] : null;
             $data['order']['invoiceAddress']['streetNumberExtension'] = isset($billingAddressParts[3]) ? $billingAddressParts[3] : null;
             $data['order']['invoiceAddress']['zipCode'] = $card->getBillingPostcode();
             $data['order']['invoiceAddress']['city'] = $card->getBillingCity();
@@ -84,8 +84,8 @@ class PurchaseRequest extends AbstractPaynlRequest
 
             $data['order']['deliveryAddress']['firstName'] = $card->getShippingFirstName();
             $data['order']['deliveryAddress']['lastName'] = $card->getShippingLastName();
-            $data['order']['deliveryAddress']['street'] = $shippingAddressParts[1];
-            $data['order']['deliveryAddress']['streetNumber'] = $shippingAddressParts[2];
+            $data['order']['deliveryAddress']['street'] = isset($shippingAddressParts[1]) ? $shippingAddressParts[1] : null;
+            $data['order']['deliveryAddress']['streetNumber'] = isset($shippingAddressParts[2]) ? $shippingAddressParts[2] : null;
             $data['order']['deliveryAddress']['streetNumberExtension'] = isset($shippingAddressParts[3]) ? $shippingAddressParts[3] : null;
             $data['order']['deliveryAddress']['zipCode'] = $card->getShippingPostcode();
             $data['order']['deliveryAddress']['city'] = $card->getShippingCity();
@@ -143,6 +143,11 @@ class PurchaseRequest extends AbstractPaynlRequest
     public function sendData($data)
     {
         $responseData = $this->sendRequestMultiCore('', $data, 'POST');
+
+        if (!is_null($this->getCardToken())) {
+            $responseData['cardToken'] = $this->getCardToken();
+        }
+
         return $this->response = new PurchaseResponse($this, $responseData);
     }
 
@@ -207,6 +212,16 @@ class PurchaseRequest extends AbstractPaynlRequest
     public function setServiceId($value)
     {
         return $this->setParameter('serviceId', $value);
+    }
+
+    public function getCardToken()
+    {
+        return $this->getParameter('cardToken');
+    }
+
+    public function setCardToken($value)
+    {
+        return $this->setParameter('cardToken', $value);
     }
 
     /**

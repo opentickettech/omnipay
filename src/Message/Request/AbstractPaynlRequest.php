@@ -27,7 +27,20 @@ abstract class AbstractPaynlRequest extends AbstractRequest
      */
     public function sendRequestMultiCore($endpoint, array $data = null, string $method = 'GET', $fetchConfig = false)
     {
-        $configResponse = $this->sendRequestRestApi('services/config');
+        $configResponse = [];
+
+        if ($fetchConfig) {
+            $configResponse = $this->sendRequestRestApi('services/config');
+        } else if (!is_null($this->getTguDomain())) {
+            $configResponse = [
+                'tguList' => [
+                    [
+                        'domain' => $this->getTguDomain(),
+                        'status' => 'ACTIVE',
+                    ]
+                ]
+            ];
+        }
 
         $decodedResponse = new FetchServiceConfigResponse($this, $configResponse);
         $jsonErrorResponse = null;
@@ -138,5 +151,22 @@ abstract class AbstractPaynlRequest extends AbstractRequest
     public function getServiceId()
     {
         return $this->getParameter('serviceId');
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setTguDomain($value)
+    {
+        return $this->setParameter('tguDomain', $value);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTguDomain()
+    {
+        return $this->getParameter('tguDomain');
     }
 }
