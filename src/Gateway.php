@@ -25,6 +25,7 @@ class Gateway extends AbstractGateway
             'tokenCode' => null,
             'apiSecret' => null,
             'serviceId' => null,
+            'tguDomain' => null,
         ];
     }
 
@@ -44,6 +45,24 @@ class Gateway extends AbstractGateway
     public function getTokenCode()
     {
         return $this->getParameter('tokenCode');
+    }
+
+    /**
+     * @param string $value Example: AT-1234-5678
+     * @return $this
+     */
+    public function setTguDomain($value)
+    {
+        $this->setParameter('tguDomain', $value);
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTguDomain()
+    {
+        return $this->getParameter('tguDomain');
     }
 
     /**
