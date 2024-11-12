@@ -14,7 +14,7 @@ class CompletePurchaseRequest extends AbstractPaynlRequest
         $this->validate('tokenCode', 'apiSecret', 'transactionReference');
 
         return [
-            'id' => $this->getParameter('transactionReference')
+            'transactionId' => $this->getParameter('transactionReference')
         ];
     }
 
@@ -24,7 +24,7 @@ class CompletePurchaseRequest extends AbstractPaynlRequest
      */
     public function sendData($data)
     {
-        $url = '/' . $data['id'] . '/status';
+        $url = '/' . $data['transactionId'] . '/status';
         $responseData = $this->sendRequestMultiCore($url);
         return $this->response = new CompletePurchaseResponse($this, $responseData);
     }

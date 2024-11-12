@@ -17,7 +17,7 @@ abstract class AbstractPaynlResponse extends AbstractResponse
      */
     public function isSuccessful()
     {
-        return isset($this->data['id']) ? true : false;
+        return isset($this->data['id']);
     }
 
     /**
@@ -25,7 +25,7 @@ abstract class AbstractPaynlResponse extends AbstractResponse
      */
     public function getMessage()
     {
-        return isset($this->data['code']) && !empty($this->data['code']) ? $this->data['code'] : null;
+        return $this->data['detail'] ?? $this->data['title'] ?? null;
     }
 
 }

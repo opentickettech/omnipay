@@ -8,7 +8,7 @@ use Omnipay\PaynlV3\Message\Response\FetchServiceConfigResponse;
 
 /**
  * Class OrderAbstractPaynlRequest
- * @package Omnipay\Paynl\Message\Request
+ * @package Omnipay\PaynlV3\Message\Request
  */
 abstract class AbstractPaynlRequest extends AbstractRequest
 {

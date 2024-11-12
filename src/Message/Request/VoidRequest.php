@@ -7,7 +7,7 @@ use Omnipay\PaynlV3\Message\Response\VoidResponse;
 
 /**
  * Class VoidRequest
- * @package Omnipay\Paynl\Message\Request
+ * @package Omnipay\PaynlV3\Message\Request
  *
  * @method VoidResponse send()
  */

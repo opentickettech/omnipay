@@ -7,7 +7,11 @@ class FetchServiceConfigRequest extends AbstractPaynlRequest
 {
     public function getData()
     {
-        $this->validate('tokenCode', 'apiSecret');
+        $this->validate('tokenCode', 'apiSecret', 'serviceId');
+
+        return [
+            'serviceId' => $this->getServiceId(),
+        ];
     }
 
     /**
@@ -16,24 +20,8 @@ class FetchServiceConfigRequest extends AbstractPaynlRequest
      */
     public function sendData($data)
     {
-        $responseData = $this->sendRequestRestApi('services/config');
+        $responseData = $this->sendRequestRestApi('services/config?serviceId=' . $data['serviceId']);
+
         return $this->response = new FetchServiceConfigResponse($this, $responseData);
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatusUrl()
-    {
-        return $this->getParameter('statusUrl');
-    }
-
-    /**
-     * @param $value string
-     * @return $this
-     */
-    public function setStatusUrl($value)
-    {
-        return $this->setParameter('statusUrl', $value);
     }
 }

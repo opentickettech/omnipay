@@ -9,7 +9,7 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getStatusUrl()
     {
-        return isset($this->data['links']['status']) ? $this->data['links']['status'] : null;
+        return $this->data['links']['status'] ?? null;
     }
 
     /**
@@ -17,7 +17,7 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getAbortUrl()
     {
-        return isset($this->data['links']['abort']) ? $this->data['links']['abort'] : null;
+        return $this->data['links']['abort'] ?? null;
     }
 
     /**
@@ -25,7 +25,7 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getApproveUrl()
     {
-        return isset($this->data['links']['approve']) ? $this->data['links']['approve'] : null;
+        return $this->data['links']['approve'] ?? null;
     }
 
     /**
@@ -33,7 +33,7 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getDeclineUrl()
     {
-        return isset($this->data['links']['decline']) ? $this->data['links']['decline'] : null;
+        return $this->data['links']['decline'] ?? null;
     }
 
     /**
@@ -41,7 +41,7 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getVoidUrl()
     {
-        return isset($this->data['links']['void']) ? $this->data['links']['void'] : null;
+        return $this->data['links']['void'] ?? null;
     }
 
     /**
@@ -49,7 +49,7 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getCaptureUrl()
     {
-        return isset($this->data['links']['capture']) ? $this->data['links']['capture'] : null;
+        return $this->data['links']['capture'] ?? null;
     }
 
     /**
@@ -57,7 +57,7 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getCaptureAmountUrl()
     {
-        return isset($this->data['links']['captureAmount']) ? $this->data['links']['captureAmount'] : null;
+        return $this->data['links']['captureAmount'] ?? null;
     }
 
     /**
@@ -65,7 +65,7 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getCaptureProductsUrl()
     {
-        return isset($this->data['links']['captureProducts']) ? $this->data['links']['captureProducts'] : null;
+        return $this->data['links']['captureProducts'] ?? null;
     }
 
     /**
@@ -73,7 +73,7 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getDebugUrl()
     {
-        return isset($this->data['links']['debug']) ? $this->data['links']['debug'] : null;
+        return $this->data['links']['debug'] ?? null;
     }
 
     /**
@@ -81,7 +81,7 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getCheckoutUrl()
     {
-        return isset($this->data['links']['checkout']) ? $this->data['links']['checkout'] : null;
+        return $this->data['links']['checkout'] ?? null;
     }
 
     /**
@@ -89,6 +89,14 @@ abstract class AbstractPaynlResponseWithLinks extends AbstractPaynlResponse
      */
     public function getRedirectUrl()
     {
-        return isset($this->data['links']['redirect']) ? $this->data['links']['redirect'] : null;
+        return $this->data['links']['redirect'] ?? null;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isRedirect()
+    {
+        return !is_null($this->getRedirectUrl());
     }
 }

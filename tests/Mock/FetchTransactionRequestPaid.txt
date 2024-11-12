@@ -1,0 +1,111 @@
+HTTP/1.1 200 OK
+Date: Wed, 26 Sep 2018 15:46:18 GMT;
+Server: Apache;
+Expires: Mon, 26 Jul 1990 05:00:00 GMT;
+Last-Modified: Wed, 26 Sep 2018 15:46:18 GMT;
+Cache-Control: post-check=0, pre-check=0;
+Pragma: no-cache;
+X-Frame-Options: SAMEORIGIN;
+X-XSS-Protection: 1; mode=block;
+X-Content-Type-Options: nosniff;
+Connection: close;
+Content-Type: application/json;
+
+{
+	"id": "672dee93-5223-8f13-1f71-77180XXXXXXX",
+	"serviceId": "SL-XXXX-XXXX",
+	"description": "1 Ticket for Test 2024-11-04 1",
+	"reference": null,
+	"manualTransferCode": "8000 0522 0043 5050",
+	"orderId": "52200435050XXXXX",
+	"uuid": "a4e17718-0700-2314-5220-XXXXXXXXXXXX",
+	"customerKey": "e1c4858b0a96a6a93eb08fe5cXXXXXXX",
+	"status": {
+		"code": 100,
+		"action": "PAID"
+	},
+	"receipt": null,
+	"integration": {
+		"test": false
+	},
+	"stats": {
+		"extra1": null,
+		"extra2": null,
+		"extra3": null,
+		"tool": null,
+		"info": null,
+		"object": null,
+		"promotorId": null,
+		"domainId": null
+	},
+	"transferData": {},
+	"amount": {
+		"value": 1,
+		"currency": "EUR"
+	},
+	"authorizedAmount": {
+		"value": 0,
+		"currency": "EUR"
+	},
+	"capturedAmount": {
+		"value": 1,
+		"currency": "EUR"
+	},
+	"checkoutData": null,
+	"payments": [
+		{
+			"id": "672dee93-5223-8cc5-254e-XXXXXXXXXXXX",
+			"paymentMethod": {
+				"id": 706,
+				"input": []
+			},
+			"customerType": null,
+			"customerKey": "e1c4858b0a96a6a93eb08fe5cXXXXXXX",
+			"customerId": "*************",
+			"customerName": "Test Customer",
+			"ipAddress": "12.123.123.123",
+			"secureStatus": true,
+			"paymentVerificationMethod": 10,
+			"status": {
+				"code": 100,
+				"action": "PAID"
+			},
+			"currencyAmount": {
+				"value": 1,
+				"currency": "EUR"
+			},
+			"amount": {
+				"value": 1,
+				"currency": "EUR"
+			},
+			"authorizedAmount": {
+				"value": 0,
+				"currency": "EUR"
+			},
+			"capturedAmount": {
+				"value": 1,
+				"currency": "EUR"
+			},
+			"supplierData": null
+		}
+	],
+	"createdAt": "2024-11-08T10:57:23+00:00",
+	"createdBy": "AT-0042-1852",
+	"modifiedAt": "2024-11-08T10:58:35+00:00",
+	"modifiedBy": null,
+	"expiresAt": "2024-11-22T10:58:32+00:00",
+	"completedAt": "2024-11-08T10:58:33+00:00",
+	"links": {
+		"status": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/status",
+		"abort": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/abort",
+		"approve": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/approve",
+		"decline": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/decline",
+		"void": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/void",
+		"capture": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/capture",
+		"captureAmount": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/capture\/amount",
+		"captureProducts": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/capture\/products",
+		"debug": "*****************************************************************************************************************************",
+		"checkout": "https:\/\/checkout.payments.nl\/to\/return\/672dee93-5223-8f13-1f71-771807002314",
+		"redirect": "https:\/\/checkout.payments.nl\/to\/return\/672dee93-5223-8f13-1f71-771807002314"
+	}
+}

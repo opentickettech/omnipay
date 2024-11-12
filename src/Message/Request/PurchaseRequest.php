@@ -144,10 +144,6 @@ class PurchaseRequest extends AbstractPaynlRequest
     {
         $responseData = $this->sendRequestMultiCore('', $data, 'POST');
 
-        if (!is_null($this->getCardToken())) {
-            $responseData['cardToken'] = $this->getCardToken();
-        }
-
         return $this->response = new PurchaseResponse($this, $responseData);
     }
 
@@ -157,6 +153,14 @@ class PurchaseRequest extends AbstractPaynlRequest
     public function getStatsData()
     {
         return $this->getParameter('statsData');
+    }
+
+    /**
+     * @return $this
+     */
+    public function setStatsData($value)
+    {
+        return $this->setParameter('statsData', $value);
     }
 
     /**
@@ -176,11 +180,27 @@ class PurchaseRequest extends AbstractPaynlRequest
     }
 
     /**
+     * @return $this
+     */
+    public function setExpireDate($value)
+    {
+        return $this->setParameter('expireDate', $value);
+    }
+
+    /**
      * @return string
      */
     public function getInvoiceDate()
     {
         return $this->getParameter('invoiceDate');
+    }
+
+    /**
+     * @return $this
+     */
+    public function setInvoiceDate($value)
+    {
+        return $this->setParameter('invoiceDate', $value);
     }
 
     /**
@@ -191,9 +211,25 @@ class PurchaseRequest extends AbstractPaynlRequest
         return $this->getParameter('deliveryDate');
     }
 
+    /**
+     * @return $this
+     */
+    public function setDeliveryDate($value)
+    {
+        return $this->setParameter('deliveryDate', $value);
+    }
+
     public function getCustomerReference()
     {
         return $this->getParameter('customerReference');
+    }
+
+    /**
+     * @return $this
+     */
+    public function setCustomerReference($value)
+    {
+        return $this->setParameter('customerReference', $value);
     }
 
     /**
@@ -204,6 +240,14 @@ class PurchaseRequest extends AbstractPaynlRequest
         return $this->getParameter('customerTrust');
     }
 
+    /**
+     * @return $this
+     */
+    public function setCustomerTrust($value)
+    {
+        return $this->setParameter('customerTrust', $value);
+    }
+
     public function getServiceId()
     {
         return $this->getParameter('serviceId');
@@ -212,16 +256,6 @@ class PurchaseRequest extends AbstractPaynlRequest
     public function setServiceId($value)
     {
         return $this->setParameter('serviceId', $value);
-    }
-
-    public function getCardToken()
-    {
-        return $this->getParameter('cardToken');
-    }
-
-    public function setCardToken($value)
-    {
-        return $this->setParameter('cardToken', $value);
     }
 
     /**

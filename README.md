@@ -127,7 +127,7 @@ foreach ($response->getIssuers() as $issuer) {
 ### Pay. items
 ```php
 # Use Pay. Item class
-use Omnipay\Paynl\Common\Item;
+use Omnipay\PaynlV3\Common\Item;
 
 # Add items to transaction
 $arrItems = array();

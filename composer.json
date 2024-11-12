@@ -23,5 +23,8 @@
         "allow-plugins": {
             "php-http/discovery": false
         }
+    },
+    "require-dev": {
+        "omnipay/tests": "^4.1"
     }
 }

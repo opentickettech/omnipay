@@ -59,7 +59,7 @@ class Gateway extends AbstractGateway
     /**
      * @return string
      */
-    public function getApiToken()
+    public function getApiSecret()
     {
         return $this->getParameter('apiSecret');
     }

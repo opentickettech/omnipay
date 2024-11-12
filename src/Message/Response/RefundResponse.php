@@ -5,6 +5,14 @@ namespace Omnipay\PaynlV3\Message\Response;
 class RefundResponse extends AbstractPaynlResponse
 {
     /**
+     * @return bool
+     */
+    public function isSuccessful()
+    {
+        return !is_null($this->getTransactionReference());
+    }
+
+    /**
      * @return string Description of the refund
      */
     public function getDescription()
@@ -17,7 +25,7 @@ class RefundResponse extends AbstractPaynlResponse
      */
     public function getAmountInteger()
     {
-        return (int)$this->data['amountRefunded'];
+        return $this->data['amountRefunded']['value'] ?? null;
     }
 
     /**
@@ -25,6 +33,6 @@ class RefundResponse extends AbstractPaynlResponse
      */
     public function getTransactionReference()
     {
-        return $this->request->getTransactionReference();
+        return $this->data['transactionId'] ?? null;
     }
 }
