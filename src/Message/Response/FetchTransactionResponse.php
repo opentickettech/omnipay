@@ -2,7 +2,7 @@
 
 namespace Omnipay\PaynlV3\Message\Response;
 
-class FetchTransactionResponse extends AbstractPaynlResponseWithLinks
+class FetchTransactionResponse extends AbstractPaynlResponse
 {
     const STATUS_CANCEL = 'CANCEL';
     const STATUS_PENDING = 'PENDING';
