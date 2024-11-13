@@ -1,5 +1,5 @@
 {
-    "name": "paynl/omnipay-paynl-v3",
+    "name": "opentickettech/omnipay-paynl-v3",
     "description": "Pay.nl driver for the Omnipay PHP payment processing library based on the V3 PayNL orders API",
     "type": "library",
     "require": {
