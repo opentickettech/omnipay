@@ -12,100 +12,182 @@ Connection: close;
 Content-Type: application/json;
 
 {
-	"id": "672dee93-5223-8f13-1f71-77180XXXXXXX",
-	"serviceId": "SL-XXXX-XXXX",
+	"id": "EX-4289-6822-XXXX",
+	"orderId": "52004733067XXXXX",
+	"serviceCode": "SL-XXXX-XXXX",
 	"description": "1 Ticket for Test 2024-11-04 1",
 	"reference": null,
-	"manualTransferCode": "8000 0522 0043 5050",
-	"orderId": "52200435050XXXXX",
-	"uuid": "a4e17718-0700-2314-5220-XXXXXXXXXXXX",
-	"customerKey": "e1c4858b0a96a6a93eb08fe5cXXXXXXX",
-	"status": {
-		"code": 100,
-		"action": "PAID"
-	},
-	"receipt": null,
-	"integration": {
-		"test": false
-	},
-	"stats": {
-		"extra1": null,
-		"extra2": null,
-		"extra3": null,
-		"tool": null,
-		"info": null,
-		"object": null,
-		"promotorId": null,
-		"domainId": null
-	},
-	"transferData": {},
+	"ipAddress": null,
 	"amount": {
 		"value": 1,
 		"currency": "EUR"
 	},
-	"authorizedAmount": {
-		"value": 0,
-		"currency": "EUR"
-	},
-	"capturedAmount": {
+	"amountConverted": {
 		"value": 1,
 		"currency": "EUR"
 	},
-	"checkoutData": null,
-	"payments": [
-		{
-			"id": "672dee93-5223-8cc5-254e-XXXXXXXXXXXX",
-			"paymentMethod": {
-				"id": 706,
-				"input": []
-			},
-			"customerType": null,
-			"customerKey": "e1c4858b0a96a6a93eb08fe5cXXXXXXX",
-			"customerId": "*************",
-			"customerName": "Test Customer",
-			"ipAddress": "12.123.123.123",
-			"secureStatus": true,
-			"paymentVerificationMethod": 10,
-			"status": {
-				"code": 100,
-				"action": "PAID"
-			},
-			"currencyAmount": {
-				"value": 1,
-				"currency": "EUR"
-			},
-			"amount": {
-				"value": 1,
-				"currency": "EUR"
-			},
-			"authorizedAmount": {
-				"value": 0,
-				"currency": "EUR"
-			},
-			"capturedAmount": {
-				"value": 1,
-				"currency": "EUR"
-			},
-			"supplierData": null
+	"amountPaid": {
+		"value": 1,
+		"currency": "EUR"
+	},
+	"amountRefunded": {
+		"value": 0,
+		"currency": "EUR"
+	},
+	"status": {
+		"code": 100,
+		"action": "PAID",
+		"phase": "SUCCESS"
+	},
+	"paymentData": {
+		"method": "iban",
+		"customerKey": "960d7ad985a1aa457d39XXXXXXXXXXXX",
+		"customerId": "NL31RBRB08XXXXXXXX",
+		"customerName": "Test User",
+		"ipAddress": "123.12.12.12",
+		"secureStatus": true,
+		"paymentVerificationMethod": 0,
+		"iban": {
+			"iban": "NL31RBRB08XXXXXXXX",
+			"bic": "RBRBNL21",
+			"owner": "Test User"
 		}
-	],
-	"createdAt": "2024-11-08T10:57:23+00:00",
-	"createdBy": "AT-0042-1852",
-	"modifiedAt": "2024-11-08T10:58:35+00:00",
-	"modifiedBy": null,
-	"expiresAt": "2024-11-22T10:58:32+00:00",
-	"completedAt": "2024-11-08T10:58:33+00:00",
-	"links": {
-		"status": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/status",
-		"abort": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/abort",
-		"approve": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/approve",
-		"decline": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/decline",
-		"void": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/void",
-		"capture": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/capture",
-		"captureAmount": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/capture\/amount",
-		"captureProducts": "https:\/\/connect.payments.nl\/v1\/orders\/672dee93-5223-8f13-1f71-771807002314\/capture\/products",
-		"debug": "*****************************************************************************************************************************",
-		"checkout": "https:\/\/checkout.payments.nl\/to\/return\/672dee93-5223-8f13-1f71-771807002314",
-		"redirect": "https:\/\/checkout.payments.nl\/to\/return\/672dee93-5223-8f13-1f71-771807002314"
-	}
+	},
+	"paymentMethod": {
+		"id": 10,
+		"subId": 9,
+		"name": "iDEAL"
+	},
+	"integration": {
+		"testMode": false
+	},
+	"customer": {
+		"firstName": null,
+		"lastName": "test",
+		"type": "B",
+		"birthDate": "",
+		"language": "nl",
+		"gender": null,
+		"phone": null,
+		"email": "test@fwef.com",
+		"ipAddress": "123.12.12.12",
+		"trust": 0,
+		"reference": "",
+		"bankAccount": {
+			"iban": null,
+			"bic": null,
+			"owner": "test"
+		},
+		"company": {
+			"name": "",
+			"coc": "",
+			"vat": "",
+			"countryCode": ""
+		}
+	},
+	"order": {
+		"countryCode": "NL",
+		"deliveryDate": "",
+		"invoiceDate": "",
+		"deliveryAddress": {
+			"firstName": null,
+			"lastName": null,
+			"streetName": null,
+			"streetNumber": null,
+			"streetNumberExtension": null,
+			"zipCode": null,
+			"city": null,
+			"regionCode": null,
+			"countryCode": "NL"
+		},
+		"invoiceAddress": {
+			"firstName": null,
+			"lastName": "test",
+			"streetName": null,
+			"streetNumber": null,
+			"streetNumberExtension": null,
+			"zipCode": null,
+			"city": null,
+			"regionCode": null,
+			"countryCode": "NL"
+		},
+		"products": [
+			{
+				"id": "07-4754-be21-a4b41b29a432",
+				"type": "article",
+				"description": "Test",
+				"price": {
+					"value": 10,
+					"currency": "EUR"
+				},
+				"quantity": 1,
+				"vatCode": "H"
+			},
+			{
+				"id": "000000",
+				"type": "rounding",
+				"description": "Afronding",
+				"price": {
+					"value": -9,
+					"currency": "EUR"
+				},
+				"quantity": 1,
+				"vatCode": "N"
+			}
+		]
+	},
+	"stats": {
+		"info": "",
+		"tool": "",
+		"object": "",
+		"extra1": "",
+		"extra2": "",
+		"extra3": "",
+		"domainId": null
+	},
+	"transferData": {},
+	"expiresAt": "2024-11-12T15:12:42+01:00",
+	"createdAt": "2024-11-12T14:12:42+01:00",
+	"createdBy": "AT-XXXX-XXXX",
+	"modifiedAt": "2024-11-12T14:12:42+01:00",
+	"modifiedBy": "A-XXXX-XXXX",
+	"deletedAt": null,
+	"deletedBy": null,
+	"_links": [
+		{
+			"href": "\/transactions\/52004733067XXXXX\/capture",
+			"rel": "capture",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004733067XXXXX\/recurring",
+			"rel": "recurring",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004733067XXXXX\/void",
+			"rel": "void",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004733067XXXXX\/approve",
+			"rel": "approve",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004733067XXXXX\/decline",
+			"rel": "decline",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004733067XXXXX\/refund",
+			"rel": "refund",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004733067XXXXX",
+			"rel": "self",
+			"type": "GET"
+		}
+	]
 }
