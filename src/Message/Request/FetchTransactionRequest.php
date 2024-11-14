@@ -24,7 +24,7 @@ class FetchTransactionRequest extends AbstractPaynlRequest
      */
     public function sendData($data)
     {
-        $statusUrl = '/transactions/' . $data['transactionId'];
+        $statusUrl = 'transactions/' . $data['transactionId'];
         $responseData = $this->sendRequestRestApi($statusUrl);
         return $this->response = new FetchTransactionResponse($this, $responseData);
     }
