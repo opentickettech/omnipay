@@ -25,7 +25,7 @@ abstract class AbstractPaynlResponse extends AbstractResponse
      */
     public function getMessage()
     {
-        return $this->data['detail'] ?? $this->data['title'] ?? null;
+        return rtrim(@$this->data['title'] . ' ' . @$this->data['detail']);
     }
 
 }
