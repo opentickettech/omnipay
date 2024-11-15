@@ -14,7 +14,7 @@ class FetchTransactionRequestTest extends TestCase
      */
     protected $request;
 
-    public function testSendSuccessVerify()
+    public function testSendSuccessPaid()
     {
         $this->setMockHttpResponse('FetchTransactionRequestPaid.txt');
 
@@ -40,6 +40,99 @@ class FetchTransactionRequestTest extends TestCase
         $this->assertFalse($response->isVerify());
 
         $this->assertEquals('PAID', $response->getStatus());
+
+        $this->assertEquals('0.01', $response->getAmount(), 'Amount should be 0.01 EUR');
+        $this->assertEquals('EUR', $response->getCurrency(), 'Amount should be 0.01 EUR');
+    }
+
+    public function testSendSuccessDenied()
+    {
+        $this->setMockHttpResponse('FetchTransactionRequestDenied.txt');
+
+        $transactionReference = uniqid();
+        $this->request->setTransactionReference($transactionReference);
+
+        $this->assertEquals($transactionReference, $this->request->getTransactionReference());
+
+        $response = $this->request->send();
+
+        $this->assertInstanceOf(FetchTransactionResponse::class, $response);
+
+        $this->assertEquals($transactionReference, $response->getTransactionReference());
+
+        $this->assertTrue($response->isSuccessful());
+
+        $this->assertFalse($response->isPaid());
+        $this->assertFalse($response->isPending());
+        $this->assertFalse($response->isOpen());
+        $this->assertFalse($response->isAuthorized());
+        $this->assertTrue($response->isCancelled());
+        $this->assertFalse($response->isExpired());
+        $this->assertFalse($response->isVerify());
+
+        $this->assertEquals('DENIED', $response->getStatus());
+
+        $this->assertEquals('0.01', $response->getAmount(), 'Amount should be 0.01 EUR');
+        $this->assertEquals('EUR', $response->getCurrency(), 'Amount should be 0.01 EUR');
+    }
+
+    public function testSendSuccessFailed()
+    {
+        $this->setMockHttpResponse('FetchTransactionRequestFailed.txt');
+
+        $transactionReference = uniqid();
+        $this->request->setTransactionReference($transactionReference);
+
+        $this->assertEquals($transactionReference, $this->request->getTransactionReference());
+
+        $response = $this->request->send();
+
+        $this->assertInstanceOf(FetchTransactionResponse::class, $response);
+
+        $this->assertEquals($transactionReference, $response->getTransactionReference());
+
+        $this->assertTrue($response->isSuccessful());
+
+        $this->assertFalse($response->isPaid());
+        $this->assertFalse($response->isPending());
+        $this->assertFalse($response->isOpen());
+        $this->assertFalse($response->isAuthorized());
+        $this->assertTrue($response->isCancelled());
+        $this->assertFalse($response->isExpired());
+        $this->assertFalse($response->isVerify());
+
+        $this->assertEquals('FAILURE', $response->getStatus());
+
+        $this->assertEquals('0.01', $response->getAmount(), 'Amount should be 0.01 EUR');
+        $this->assertEquals('EUR', $response->getCurrency(), 'Amount should be 0.01 EUR');
+    }
+
+    public function testSendSuccessCancelled()
+    {
+        $this->setMockHttpResponse('FetchTransactionRequestCancelled.txt');
+
+        $transactionReference = uniqid();
+        $this->request->setTransactionReference($transactionReference);
+
+        $this->assertEquals($transactionReference, $this->request->getTransactionReference());
+
+        $response = $this->request->send();
+
+        $this->assertInstanceOf(FetchTransactionResponse::class, $response);
+
+        $this->assertEquals($transactionReference, $response->getTransactionReference());
+
+        $this->assertTrue($response->isSuccessful());
+
+        $this->assertFalse($response->isPaid());
+        $this->assertFalse($response->isPending());
+        $this->assertFalse($response->isOpen());
+        $this->assertFalse($response->isAuthorized());
+        $this->assertTrue($response->isCancelled());
+        $this->assertFalse($response->isExpired());
+        $this->assertFalse($response->isVerify());
+
+        $this->assertEquals('CANCEL', $response->getStatus());
 
         $this->assertEquals('0.01', $response->getAmount(), 'Amount should be 0.01 EUR');
         $this->assertEquals('EUR', $response->getCurrency(), 'Amount should be 0.01 EUR');
