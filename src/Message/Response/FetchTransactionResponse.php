@@ -10,13 +10,17 @@ class FetchTransactionResponse extends AbstractPaynlResponse
     const STATUS_EXPIRED = 'EXPIRED';
     const STATUS_VERIFY = 'VERIFY';
     const STATUS_PAID = 'PAID';
+    const STATUS_DENIED = 'DENIED';
+    const STATUS_FAILED = 'FAILURE';
 
     /**
      * @return bool
      */
     public function isCancelled()
     {
-        return isset($this->data['status']['action']) && $this->data['status']['action'] === self::STATUS_CANCEL;
+        return isset($this->data['status']['action']) && ($this->data['status']['action'] === self::STATUS_CANCEL
+              || $this->data['status']['action'] === self::STATUS_DENIED
+              || $this->data['status']['action'] === self::STATUS_FAILED);
     }
 
     /**

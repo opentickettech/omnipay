@@ -1,0 +1,197 @@
+HTTP/1.1 200 OK
+Date: Wed, 26 Sep 2018 15:46:18 GMT;
+Server: Apache;
+Expires: Mon, 26 Jul 1990 05:00:00 GMT;
+Last-Modified: Wed, 26 Sep 2018 15:46:18 GMT;
+Cache-Control: post-check=0, pre-check=0;
+Pragma: no-cache;
+X-Frame-Options: SAMEORIGIN;
+X-XSS-Protection: 1; mode=block;
+X-Content-Type-Options: nosniff;
+Connection: close;
+Content-Type: application/json;
+
+{
+	"id": "EX-4289-6822-XXXX",
+    "orderId": "52004733067XXXXX",
+    "serviceCode": "SL-XXXX-XXXX",
+	"description": "1 Ticket for Test 2024-11-04 1",
+	"reference": "",
+	"ipAddress": "123.12.12.12",
+	"amount": {
+		"value": 1,
+		"currency": "EUR"
+	},
+	"amountConverted": {
+		"value": 0,
+		"currency": "EUR"
+	},
+	"amountPaid": {
+		"value": 0,
+		"currency": "EUR"
+	},
+	"amountRefunded": {
+		"value": 0,
+		"currency": "EUR"
+	},
+	"status": {
+		"code": -90,
+		"action": "CANCEL",
+		"phase": "CANCELLED"
+	},
+	"paymentData": {
+		"method": "",
+		"customerKey": "",
+		"customerId": "",
+		"customerName": "",
+		"ipAddress": "",
+		"secureStatus": false,
+		"paymentVerificationMethod": 0,
+		"iban": null
+	},
+	"paymentMethod": {
+		"id": 1663,
+		"subId": 0,
+		"name": ""
+	},
+	"integration": {
+		"testMode": false
+	},
+	"customer": {
+		"firstName": "Test",
+		"lastName": "test",
+		"ipAddress": "172.18.0.30",
+		"birthDate": null,
+		"gender": null,
+		"phone": null,
+		"email": "test@fwef.com",
+		"language": "NL",
+		"trust": null,
+		"reference": null,
+		"company": {
+			"name": "",
+			"coc": null,
+			"vat": null,
+			"countryCode": null
+		},
+		"type": "B",
+		"bankAccount": {
+			"iban": null,
+			"bic": null,
+			"owner": null
+		}
+	},
+	"order": {
+		"countryCode": "NL",
+		"deliveryDate": null,
+		"invoiceDate": null,
+		"deliveryAddress": {
+			"firstName": "Test",
+			"lastName": "test",
+			"streetName": "",
+			"streetNumber": "",
+			"streetNumberExtension": null,
+			"zipCode": "",
+			"city": "",
+			"regionCode": null,
+			"countryCode": "NL"
+		},
+		"invoiceAddress": {
+			"firstName": "Test",
+			"lastName": "test",
+			"streetName": "",
+			"streetNumber": "",
+			"streetNumberExtension": null,
+			"zipCode": "",
+			"city": "",
+			"regionCode": null,
+			"countryCode": "NL"
+		},
+		"products": [
+			{
+				"id": "000000",
+				"description": "Rounding down",
+				"type": "ROUNDING_DOWN",
+				"price": {
+					"value": 9,
+					"currency": "EUR"
+				},
+				"quantity": 1,
+				"vatCode": "L",
+				"vatPercentage": 0
+			},
+			{
+				"id": "07-4754-be21-a4b41b29a432",
+				"description": "Test",
+				"type": "ARTICLE",
+				"price": {
+					"value": 10,
+					"currency": "EUR"
+				},
+				"quantity": 1,
+				"vatCode": "L",
+				"vatPercentage": 21
+			}
+		]
+	},
+	"stats": {
+		"info": null,
+		"tool": null,
+		"object": null,
+		"extra1": null,
+		"extra2": null,
+		"extra3": null,
+		"domainId": null,
+		"transferData": []
+	},
+	"transferData": [],
+	"createdBy": null,
+	"expiresAt": "2024-11-22T09:15:29+00:00",
+	"createdAt": "2024-11-15T09:15:29+00:00",
+	"modifiedAt": "2024-11-15T09:15:42+00:00",
+	"modifiedBy": null,
+	"deletedAt": null,
+	"deletedBy": null,
+	"_links": [
+		{
+			"href": "https:\/\/payments.nl\/v2\/transactions\/52004736065XXXXX",
+			"rel": "self",
+			"type": "GET"
+		},
+		{
+			"href": "\/transactions\/52004736065XXXXX\/capture",
+			"rel": "capture",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004736065XXXXX\/recurring",
+			"rel": "recurring",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004736065XXXXX\/void",
+			"rel": "void",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004736065XXXXX\/approve",
+			"rel": "approve",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004736065XXXXX\/decline",
+			"rel": "decline",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004736065XXXXX\/refund",
+			"rel": "refund",
+			"type": "PATCH"
+		},
+		{
+			"href": "\/transactions\/52004736065XXXXX",
+			"rel": "self",
+			"type": "GET"
+		}
+	]
+}
