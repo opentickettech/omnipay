@@ -68,7 +68,7 @@ class PurchaseRequest extends AbstractPaynlRequest
             $data['customer']['birthDate'] = !empty($card->getBirthday()) ? $card->getBirthday() : null;
             $data['customer']['gender'] = !empty($card->getGender()) ? $card->getGender() : null; //Should be inserted in the CreditCard as M/F
             $data['customer']['phone'] = !empty($card->getPhone()) ? $card->getPhone() : null;
-            $data['customer']['locale'] = !empty($card->getCountry()) ? substr($card->getCountry(), 0, 2) : null;
+            $data['customer']['locale'] = !empty($this->getLocale()) ? $this->getLocale() : null;
             $data['customer']['company']['name'] = !empty($card->getCompany()) ? $card->getCompany() : null;
 
             $data['order']['countryCode'] = !empty($card->getCountry()) ? substr($card->getCountry(), 0, 2) : null;
@@ -256,6 +256,16 @@ class PurchaseRequest extends AbstractPaynlRequest
     public function setServiceId($value)
     {
         return $this->setParameter('serviceId', $value);
+    }
+
+    public function getLocale()
+    {
+        return $this->getParameter('locale');
+    }
+
+    public function setLocale($value)
+    {
+        return $this->setParameter('locale', $value);
     }
 
     /**
